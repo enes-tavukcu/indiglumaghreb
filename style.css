@@ -1,0 +1,28 @@
+ /*
+Theme Name: Indiglu Maghreb
+Theme URI: https://maghreb.indiglu.com/wp-content/themes/indiglumaghreb/style.css
+Author: Enes TAVUKCU
+Author URI: https://maghreb.indiglu.com
+Description: Thème développé par l'équipe KEYT
+Version: 0.1
+Tags: simple, facile
+*/
+
+header {
+    height: 84px;
+    width: 100%;
+    background: transparent;
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+
+}
+
+
+
