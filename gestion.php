@@ -87,8 +87,8 @@ if (have_posts()) {
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var map = L.map('map').fitBounds([
-            [33.8869, 9.5375], // Tunisia
-            [28.0339, 1.6596], // Algeria
+            [33.8869, 7.4375], // Tunisia
+            [35.0339, 0.2596], // Algeria
             [31.7917, -7.0926] // Morocco
         ]);
 
