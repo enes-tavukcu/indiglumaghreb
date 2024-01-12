@@ -1,5 +1,4 @@
 <?php
-// FILEPATH: /c:/MAMP/htdocs/indiglumaghreb/wp-content/themes/indiglumaghreb/404.php
 
 get_header(); // Inclure l'en-tête du thème
 ?>
@@ -58,6 +57,7 @@ get_header(); // Inclure l'en-tête du thème
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         border-radius: 10px;
         margin: auto; /* Auto-margin pour le centrage */
+        padding-bottom: 20px;
     }
     .error-image {
         width: 100px;
