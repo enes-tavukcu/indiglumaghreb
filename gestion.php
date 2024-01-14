@@ -204,7 +204,7 @@ get_footer();
         background-color: #f8f8f8; /* Couleur de fond */
         padding: 20px; /* Espacement intérieur */
         border-radius: 10px; /* Bords arrondis */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ombre légère */
         max-width: 600px; /* Largeur maximale */
         margin: auto; /* Centrer le formulaire */
         margin-top: 20px;
