@@ -1,7 +1,15 @@
 <?php
 
-get_header(); // Inclure l'en-tête du thème
-?>
+
+
+function add_meta_description()
+{
+    ?>
+    <meta name="description" content="Oups ! La page que vous cherchez sur Indiglu Maghreb semble introuvable. Mais ne vous inquiétez pas, explorez notre site pour trouver des informations fiables et utiles sur le diabète et la santé au Maghreb.">
+<?php
+}
+
+get_header(); ?>
 
 <body>
 

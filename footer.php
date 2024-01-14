@@ -165,6 +165,8 @@
 .footer-section ul {
   list-style: none;
   padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 

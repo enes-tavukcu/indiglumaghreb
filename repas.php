@@ -28,51 +28,61 @@ if (have_posts()) {
 }
 ?>
 
-<div class="btn">
-<button class="type-btn" onclick="showAllPlats()">Tous</button>
-<button class="type-btn" onclick="filterPlats('Entrée')">Entrée</button>
-<button class="type-btn" onclick="filterPlats('Plat')">Plat</button>
-<button class="type-btn" onclick="filterPlats('Dessert')">Dessert</button>
-</div>
+    <div class="btn">
+        <button class="type-btn" onclick="showAllPlats()">Tous</button>
+        <button class="type-btn" onclick="filterPlats('Entrée')">Entrée</button>
+        <button class="type-btn" onclick="filterPlats('Plat')">Plat</button>
+        <button class="type-btn" onclick="filterPlats('Dessert')">Dessert</button>
+    </div>
 
 
 
-<script>
-    function filterPlats(type) {
-        var plats = document.getElementsByClassName('plat');
-        for (var i = 0; i < plats.length; i++) {
-            var plat = plats[i];
-            var typePlat = plat.querySelector('.type-plat').textContent.trim();
-            if (typePlat === type) {
-                plat.style.display = 'block';
-            } else {
-                plat.style.display = 'none';
+    <script>
+        function filterPlats(type) {
+            var plats = document.getElementsByClassName('plat');
+            for (var i = 0; i < plats.length; i++) {
+                var plat = plats[i];
+                var typePlat = plat.querySelector('.type-plat').textContent.trim();
+                if (typePlat === type) {
+                    plat.style.display = 'block';
+                } else {
+                    plat.style.display = 'none';
+                }
             }
+            scrollToTop();
         }
-        scrollToTop();
-    }
 
-    function showAllPlats() {
-        var plats = document.getElementsByClassName('plat');
-        for (var i = 0; i < plats.length; i++) {
-            var plat = plats[i];
-            plat.style.display = 'block';
+        function showAllPlats() {
+            var plats = document.getElementsByClassName('plat');
+            for (var i = 0; i < plats.length; i++) {
+                var plat = plats[i];
+                plat.style.display = 'block';
+            }
+            scrollToTop();
         }
-        scrollToTop();
-    }
 
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-</script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 
 
 <div class="creat-repas">
     <button class="type-btn" onclick="scrollToForm()">Créer une recette</button>
 </div>
+
+
+<script>
+function scrollToForm() {
+    document.getElementById("formulaire-creation-recette").scrollIntoView({ 
+        behavior: 'smooth' 
+    });
+}
+</script>
+
 
 <div class="plats">
    <?php
@@ -87,10 +97,11 @@ if (have_posts()) {
    if ($plat_query->have_posts()) :
        while ($plat_query->have_posts()) : $plat_query->the_post();
    ?>
-           <article class="plat">
-               <div class="card">
 
-                     <div class="image">
+        <article class="plat">
+            <div class="card">
+
+                    <div class="image">
                           <?php 
                           $image = get_field('image'); // Assurez-vous que 'image' est le nom correct du champ
                           if( !empty($image) ): ?>
@@ -102,42 +113,42 @@ if (have_posts()) {
 
                     <ul>
                        <li class="type-plat">
-             <?php 
-               $type = get_field('type'); // Assurez-vous que 'type_de_plat' est le nom correct du champ
-               if (!empty($type)) {
-                     // Afficher le type de plat
-                     echo esc_html($type);
-                            }
-                               ?>
-                               </li>
-                            <?php
-                            echo '<img loading="lazy" srcset="' . get_template_directory_uri() . '/img/temps.png" class="section-img" alt="temps" />';
-                            ?>
-                            <?php the_field("temps_de_prepa"); ?> min
-                        </li>
-                        
-                        <li>
-                            <?php
-                            echo '<img loading="lazy" srcset="' . get_template_directory_uri() . '/img/utilisateur.png" class="section-img" alt="user" />';
-                            ?>
-                             <?php
-                            $nb_personne = get_field("nb_personne");
-                            if ($nb_personne == 1) {
-                                echo $nb_personne . ' personne';
-                            } else {
-                                echo $nb_personne . ' personnes';
-                            }
-                            ?>
+                            <?php 
+                            $type = get_field('type'); // Assurez-vous que 'type_de_plat' est le nom correct du champ
+                            if (!empty($type)) {
+                                    // Afficher le type de plat
+                                    echo esc_html($type);
+                                            }
+                                            ?>
+                                            </li>
+                                            <?php
+                                            echo '<img loading="lazy" srcset="' . get_template_directory_uri() . '/img/temps.png" class="section-img" alt="temps" />';
+                                            ?>
+                                            <?php the_field("temps_de_prepa"); ?> min
+                                        </li>
+                                        
+                                        <li>
+                                            <?php
+                                                echo '<img loading="lazy" srcset="' . get_template_directory_uri() . '/img/utilisateur.png" class="section-img" alt="user" />';
+                                            ?>
+                                            <?php
+                                                $nb_personne = get_field("nb_personne");
+                                                if ($nb_personne == 1) {
+                                                    echo $nb_personne . ' personne';
+                                                } else {
+                                                    echo $nb_personne . ' personnes';
+                                                }
+                                            ?>
                         </li>
                     </ul>
                 
-                    <p class="title">
-    <a id="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-</p>
+                            <p class="title">
+                                <a id="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </p>
 
                    
-               </div>
-           </article>
+            </div>
+        </article>
 
         
 
@@ -467,10 +478,4 @@ body {
 </style>
 
 
-<script>
-function scrollToForm() {
-    document.getElementById("formulaire-creation-recette").scrollIntoView({ 
-        behavior: 'smooth' 
-    });
-}
-</script>
+
